@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from os import environ
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-9!w7i(tb@1*4+rg0tu27zvh@ov6uy6-@my_p)6r#k!ees335p7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['app/app/templates'],
+        'DIRS': ['app/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,9 +84,19 @@ DATABASES = {
         'PORT': 1972,
         'USER': 'django',
         'PASSWORD': 'django',
+    },
+    'prod': {
+        'ENGINE': 'django_iris',
+        'NAME': 'USER',
+        'HOST': 'iris',
+        'PORT': 1972,
+        'USER': 'django',
+        'PASSWORD': 'django',
     }
 }
 
+default_database = environ.get('DJANGO_DATABASE', 'default')
+DATABASES['default'] = DATABASES[default_database]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

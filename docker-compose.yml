@@ -17,3 +17,9 @@ services:
       dockerfile: dockerfile
     ports:
       - "8081:8080"
+  python-django:
+    build:
+      context: ./python/django
+      dockerfile: dockerfile
+    ports:
+      - "8001:8000"
