@@ -1,0 +1,18 @@
+.page-header {
+  margin-top: 30px;
+}
+
+.fa-trash-alt {
+  color: red;
+  float: right;
+  cursor: pointer;
+}
+
+.person-complete {
+  text-decoration: line-through;
+}
+
+.person-status-checkbox {
+  cursor: pointer;
+  margin-right: 10px;
+}
