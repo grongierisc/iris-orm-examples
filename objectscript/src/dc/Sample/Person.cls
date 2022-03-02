@@ -1,5 +1,7 @@
-Class dc.Sample.Person Extends (%Persistent, Form.Adaptor)
+Class Sample.Person Extends (%Persistent, Form.Adaptor)
 {
+
+Parameter %JSONREFERENCE = "ID";
 
 /// Form name, not a global key so it can be anything
 Parameter FORMNAME = "Person";
@@ -14,6 +16,8 @@ Parameter OBJPERMISSIONS As %String = "CRUD";
 /// Property used for basic information about the object
 /// By default getObjectDisplayName method gets its value from it
 Parameter DISPLAYPROPERTY As %String = "name";
+
+Property myid As %Integer [ Calculated, SqlComputeCode = { set {*}={%%ID}}, SqlComputed ];
 
 Property name As %VarString(DISPLAYNAME = "Name");
 
@@ -32,11 +36,11 @@ Storage Default
 <Value>surname</Value>
 </Value>
 </Data>
-<DataLocation>^dc.Sample.PersonD</DataLocation>
+<DataLocation>^Sample.PersonD</DataLocation>
 <DefaultData>PersonDefaultData</DefaultData>
-<IdLocation>^dc.Sample.PersonD</IdLocation>
-<IndexLocation>^dc.Sample.PersonI</IndexLocation>
-<StreamLocation>^dc.Sample.PersonS</StreamLocation>
+<IdLocation>^Sample.PersonD</IdLocation>
+<IndexLocation>^Sample.PersonI</IndexLocation>
+<StreamLocation>^Sample.PersonS</StreamLocation>
 <Type>%Storage.Persistent</Type>
 }
 
