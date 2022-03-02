@@ -82,16 +82,16 @@ DATABASES = {
         'NAME': 'USER',
         'HOST': 'localhost',
         'PORT': 1972,
-        'USER': 'django',
-        'PASSWORD': 'django',
+        'USER': 'SuperUser',
+        'PASSWORD': 'SYS',
     },
     'prod': {
         'ENGINE': 'django_iris',
         'NAME': 'USER',
         'HOST': 'iris',
         'PORT': 1972,
-        'USER': 'django',
-        'PASSWORD': 'django',
+        'USER': 'SuperUser',
+        'PASSWORD': 'SYS',
     }
 }
 
