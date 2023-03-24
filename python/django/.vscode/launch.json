@@ -10,9 +10,10 @@
             "request": "launch",
             "program": "${workspaceFolder}/app/manage.py",
             "args": [
-                "runserver"
+                "migrate"
             ],
-            "django": true
+            "django": true,
+            "justMyCode": false
         }
     ]
 }
