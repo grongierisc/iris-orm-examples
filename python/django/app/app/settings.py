@@ -76,8 +76,18 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
+# iris://fhirsql:95485ada-c8c6-11ed-a57f-068b3f043eb8@13.39.88.212:1972/FHIRDB
 DATABASES = {
     'default': {
+        'ENGINE': 'django_iris',
+        'NAME': 'FHIRDB',
+        'HOST': '13.39.88.212',
+        'PORT': 1972,
+        'USER': 'fhirsql',
+        'PASSWORD': '95485ada-c8c6-11ed-a57f-068b3f043eb8',
+    },
+    'default2': {
         'ENGINE': 'django_iris',
         'NAME': 'USER',
         'HOST': 'localhost',
@@ -122,11 +132,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+#TIME_ZONE = 'UTC'
+TIMEOUT = 60
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
